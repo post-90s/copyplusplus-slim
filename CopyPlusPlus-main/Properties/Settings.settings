@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CopyPlusPlus.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AppID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">None</Value>
+    </Setting>
+    <Setting Name="SecretKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">None</Value>
+    </Setting>
+    <Setting Name="LastOpenDate" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2021-04-16</Value>
+    </Setting>
+    <Setting Name="SwitchCheck" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;string&gt;True&lt;/string&gt;
+  &lt;string&gt;False&lt;/string&gt;
+  &lt;string&gt;False&lt;/string&gt;
+  &lt;string&gt;False&lt;/string&gt;
+  &lt;string&gt;False&lt;/string&gt;
+  &lt;string&gt;False&lt;/string&gt;
+  &lt;string&gt;False&lt;/string&gt;
+  &lt;string&gt;False&lt;/string&gt;
+  &lt;string&gt;0&lt;/string&gt;
+  &lt;string&gt;0&lt;/string&gt;
+  &lt;string&gt;0&lt;/string&gt;
+  &lt;string&gt;False&lt;/string&gt;
+  &lt;string&gt;True&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="RemainChinese" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RemainEnglish" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
