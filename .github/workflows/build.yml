@@ -23,11 +23,11 @@ jobs:
 
       # 如果你是 packages.config（老式），用 nuget restore
       - name: Restore NuGet packages
-        run: nuget restore .\CopyPlusPlus.sln
+        run: nuget restore .\CopyPlusPlus-main\CopyPlusPlus.sln
 
       # 编译 Release
       - name: Build (Release)
-        run: msbuild .\CopyPlusPlus.sln /m /p:Configuration=Release /p:Platform="Any CPU"
+        run: msbuild .\CopyPlusPlus-main\CopyPlusPlus.sln /m /p:Configuration=Release /p:Platform="Any CPU"
 
       # 打包输出（把 bin\Release 整个目录压成 zip）
       - name: Pack artifacts
