@@ -1,0 +1,46 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      # 如果你是 packages.config（老式），用 nuget restore
+      - name: Restore NuGet packages
+        run: nuget restore .\CopyPlusPlus.sln
+
+      # 编译 Release
+      - name: Build (Release)
+        run: msbuild .\CopyPlusPlus.sln /m /p:Configuration=Release /p:Platform="Any CPU"
+
+      # 打包输出（把 bin\Release 整个目录压成 zip）
+      - name: Pack artifacts
+        shell: pwsh
+        run: |
+          $out = Get-ChildItem -Recurse -Directory | Where-Object { $_.FullName -match "\\bin\\Release$" } | Select-Object -First 1
+          if (-not $out) { throw "Release output folder not found. Check solution/project paths." }
+          $zip = Join-Path $env:GITHUB_WORKSPACE "CopyPlusPlus_Release.zip"
+          Compress-Archive -Path (Join-Path $out.FullName "*") -DestinationPath $zip -Force
+          Write-Host "Packed: $zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CopyPlusPlus_Release
+          path: CopyPlusPlus_Release.zip
